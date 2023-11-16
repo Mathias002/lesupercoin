@@ -11,6 +11,7 @@ use Doctrine\ORM\EntityManagerInterface; // N'oubliez pas d'importer l'EntityMan
 use App\Entity\User; // Assurez-vous d'importer la classe User
 use App\Repository\UserRepository;
 
+
 class UserController extends AbstractController
 {
     #[Route('/user/{id_user}', name: 'app_user')]
@@ -19,15 +20,25 @@ class UserController extends AbstractController
         // Récupérer les données de l'utilisateur depuis la base de données
         $user = $entityManager->getRepository(User::class)->findOneBy(['id' => $id_user]);
 
+         // Récupérer l'utilisateur connecté
+         $loggedInUser = $this->getUser();
+
         if (!$user) {
             return $this->render('user/user_not_found.html.twig', [
                 'user' => $user,
             ]);
         }
-
-        return $this->render('user/user.html.twig', [
-            'user' => $user,
-        ]);
+        
+        // getId() raison de l'erreur inconnu (cache ?) mais fonctionne quand même aucunne incidence sur le fonctionement du site 
+        if ($loggedInUser && $loggedInUser->getId() == $id_user){ 
+            return $this->render('user/user.html.twig', [
+                'user' => $user,
+            ]);
+        }else{
+            $this->addFlash('acces_denied',"Vous n'avez pas les droits nécessaires");
+            return $this->redirectToRoute('app_all_product');
+        }
+        
     }
 
     #[Route('/users', name: 'app_all_user')]

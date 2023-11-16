@@ -6,7 +6,7 @@ Utilisateurs :
   - email: admin@admin.fr mdp: test
 
 l'utilisateur ayant le rôle "user" peut voir l'ensemble des annonces et le detail de chacune ainsi qu'à sa page de profil; 
-néanmoins il ne peut pas accéder à la gestion des annonces ou des utilisateurs (add / update / remove) -> se référer à security.yml "config/package /security.yml
+néanmoins il ne peut pas accéder à la gestion des annonces ou des utilisateurs (add / update / remove) -> se référer à security.yml "config/packages/security.yml
 
 L'utilisateur ayant le rôle "Admin" possède l'accès à toutes les pages disponibles 
 il peut également ajouter modifier supprimer des annonces et modifier et supprimer des utilisateurs

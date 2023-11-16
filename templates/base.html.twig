@@ -75,17 +75,23 @@
               type="submit"
               style="margin-right: 3rem"
             >
-              <a class="dropdown-item" href="{{ path('app_add_annonce') }}"
-                >add annonce</a
-              >
+              <a class="dropdown-item" href="{{ path('app_add_annonce') }}">
+                add annonce
+              </a>
             </button>
             {# Vérifier si l'utilisateur est connecté #} 
             {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %} {# L'utilisateur est connecté, afficher le bouton "Log out" #}
             <button class="btn btn-outline-dark" type="submit">
-              <a class="dropdown-item" href="{{ path('app_logout') }}"
-                >Log out</a
-              >
+              <a class="dropdown-item" href="{{ path('app_logout') }}">
+                Log out
+              </a>
             </button>
+              <a class="dropdown-item" href="{{ path('app_user', {'id_user': app.user.id }) }}" style="margin: auto 1rem;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                  <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+                  <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+                </svg>
+              </a>
             {% else %} {# L'utilisateur n'est pas connecté, afficher le bouton
             "Log in" ou "Register" #}
             <button
@@ -93,11 +99,9 @@
               style="margin-right: 1rem"
               type="submit"
             >
-              <a
-                class="dropdown-item"
-                href="{{ path('app_form_registration') }}"
-                >Register</a
-              >
+              <a class="dropdown-item" href="{{ path('app_form_registration') }}">
+                Register
+              </a>
             </button>
             <button class="btn btn-outline-dark" type="submit">
               <a class="dropdown-item" href="{{ path('app_login') }}">Log in</a>

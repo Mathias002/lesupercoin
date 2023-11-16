@@ -35,6 +35,7 @@ security:
         - { path: '^/.*\/update', roles: 'ROLE_ADMIN' }
         - { path: '^/.*\/remove', roles: 'ROLE_ADMIN' }
         - { path: '^/annonce', roles: 'ROLE_USER' }
+       
         - { path: '^/users', roles: 'ROLE_ADMIN' }
 
 when@test:

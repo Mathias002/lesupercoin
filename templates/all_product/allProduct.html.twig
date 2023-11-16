@@ -4,9 +4,14 @@
 
 {% block body %}
 
-    {% for message in app.flashes('success') %}
+    {% for message_success in app.flashes('success') %}
         <div class="alert alert-success" style="width:50%; margin:auto; margin-bottom:2rem;">
-            <strong>Félicitation {{ message }}</strong>
+            <strong>Félicitation {{ message_success }}</strong>
+        </div>
+    {% endfor %}
+    {% for message_denied in app.flashes('acces_denied') %}
+        <div class="alert alert-danger" style="width:50%; margin:auto; margin-bottom:2rem;">
+            <strong>{{ message_denied }}</strong>
         </div>
     {% endfor %}
 
