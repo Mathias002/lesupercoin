@@ -61,4 +61,18 @@
           </section>
     {% endfor %}
 </div>
+<script>
+  function confirmationDelete() {
+      var confirmation = confirm('Êtes-vous sûr de vouloir supprimer ?');
+
+      if (confirmation) {
+          // Si l'utilisateur clique sur OK, exécutez l'action de suppression ici
+          // Par exemple, soumettez le formulaire de suppression ou effectuez une requête AJAX
+          alert('Action de suppression effectuée');
+      } else {
+          // Si l'utilisateur clique sur Annuler, annulez l'action de suppression
+          alert('Action de suppression annulée');
+      }
+  }
+</script>
 {% endblock %}

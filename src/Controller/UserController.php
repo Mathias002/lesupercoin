@@ -42,7 +42,7 @@ class UserController extends AbstractController
     }
 
 
-    #[Route('remove/user/{id_user}', name: 'app_remove_user')]
+    #[Route('/user/remove/{id_user}', name: 'app_remove_user')]
     public function remove(int $id_user, EntityManagerInterface $entityManager): Response
     {
 
@@ -60,7 +60,7 @@ class UserController extends AbstractController
         return $this->redirectToRoute('app_all_product');
     }
 
-    #[Route('update/user/{id_user}', name: 'app_update_user')]
+    #[Route('user/update/{id_user}', name: 'app_update_user')]
     public function update(int $id_user, Request $request, EntityManagerInterface $entityManager): Response
     {
 

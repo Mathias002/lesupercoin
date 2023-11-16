@@ -57,16 +57,6 @@
             <li class="nav-item">
               <a class="nav-link" href="{{ path('app_all_user') }}">users</a>
             </li>
-            <li class="nav-item dropdown">
-              <a
-                class="nav-link dropdown-toggle"
-                id="navbarDropdown"
-                href="#"
-                role="button"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-                >Shop</a
-              >
               <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <li>
                   <a class="dropdown-item" href="{{ path('app_all_product') }}"
@@ -89,9 +79,8 @@
                 >add annonce</a
               >
             </button>
-            {# Vérifier si l'utilisateur est connecté #} {% if
-            is_granted('IS_AUTHENTICATED_REMEMBERED') %} {# L'utilisateur est
-            connecté, afficher le bouton "Log out" #}
+            {# Vérifier si l'utilisateur est connecté #} 
+            {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %} {# L'utilisateur est connecté, afficher le bouton "Log out" #}
             <button class="btn btn-outline-dark" type="submit">
               <a class="dropdown-item" href="{{ path('app_logout') }}"
                 >Log out</a
@@ -99,11 +88,19 @@
             </button>
             {% else %} {# L'utilisateur n'est pas connecté, afficher le bouton
             "Log in" ou "Register" #}
-            <button class="btn btn-outline-dark" style="margin-right: 1rem;" type="submit">
-              <a class="dropdown-item" href="{{ path('app_form_registration') }}">Register</a>
+            <button
+              class="btn btn-outline-dark"
+              style="margin-right: 1rem"
+              type="submit"
+            >
+              <a
+                class="dropdown-item"
+                href="{{ path('app_form_registration') }}"
+                >Register</a
+              >
             </button>
-            <button class="btn btn-outline-dark" type="submit">  
-                <a class="dropdown-item" href="{{ path('app_login') }}">Log in</a>
+            <button class="btn btn-outline-dark" type="submit">
+              <a class="dropdown-item" href="{{ path('app_login') }}">Log in</a>
             </button>
             {% endif %}
           </form>

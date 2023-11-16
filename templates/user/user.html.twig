@@ -46,9 +46,20 @@
               </a>
              </button>
               </div>
-              <button type="button" class="btn btn-primary btn-rounded btn-lg">
-                Message now
-              </button>
+              {# Vérifier si l'utilisateur est connecté #} 
+              {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %} {# L'utilisateur est connecté, afficher le bouton "Log out" #}
+                <button class="btn btn-warning btn-rounded btn-lg" type="submit">
+                  <a href="{{ path('app_logout') }}" style="text-decoration:none; color:white;">
+                    Log out
+                  </a>
+                </button>
+              {% else %} {# L'utilisateur n'est pas connecté, afficher le bouton "Log in" ou "Log out" #}
+                <button type="button" class="btn btn-primary btn-rounded btn-lg">
+                  <a href="{{ path('app_login')}}" style="text-decoration:none; color:white;">
+                    Log in
+                  </a>
+                </button>
+              {%endif%}
               <div class="d-flex justify-content-between text-center mt-5 mb-2">
                 <div>
                   <p class="mb-2 h5">8471</p>
