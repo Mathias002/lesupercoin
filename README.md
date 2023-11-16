@@ -1,6 +1,8 @@
 # lesupercoin
 Symfony project CRUD
 
+!!! ne pas oublier de d'effectuer la commande "composer require symfony/runtime" afin de générer les dossier var et vendor !!!
+
 Utilisateurs : 
   - email: user@user.fr mdp: test
   - email: admin@admin.fr mdp: test
