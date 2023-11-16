@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %} {% block title %}Update{% endblock %} {% block
+    header %}
+    <header class="bg-dark py-5 mb-5">
+      <div class="container px-4 px-lg-5 my-5">
+        <div class="text-center text-white">
+          <h1 class="display-4 fw-bolder">Update profile of {{ SelectedUser.surname }}</h1>
+        </div>
+      </div>
+    </header>
+    {% endblock %} {%block body %}
+    <div id="container_form" style="width: 40%; margin: auto">
+      <h1>Update</h1>
+    
+      {{ form_start(UpdateUserForm) }}
+    
+      {{ form_row(UpdateUserForm.email) }}
+    
+      {{ form_row(UpdateUserForm.name) }}
+    
+      {{ form_row(UpdateUserForm.surname) }}
+    
+      {{ form_row(UpdateUserForm.password) }}
+    
+      <button class="btn btn-dark" type="submit">Update</button>
+    
+      {{ form_end(UpdateUserForm) }}
+    </div>
+    {% endblock %}
+    

@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %} {% block title %}Add annonce{% endblock %} 
+{%block body %}
+    <div id="container_form" style="width:40%; margin:auto;">
+
+        <h1>Add annonce</h1>
+
+        {{ form_start(NewAnnonceForm) }}
+
+        {{ form_row(NewAnnonceForm.title) }}
+
+        {{ form_row(NewAnnonceForm.prix) }}
+
+        {{ form_row(NewAnnonceForm.content) }}
+
+        {{ form_row(NewAnnonceForm.categories) }}
+
+        <button class="btn btn-dark" type="submit">Add to catalog</button>
+
+        {{ form_end(NewAnnonceForm) }}
+        
+    </div>
+{% endblock %}
+

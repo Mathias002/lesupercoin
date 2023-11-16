@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Annonces{% endblock %}
+
+{% block body %}
+
+    {% for message in app.flashes('success') %}
+        <div class="alert alert-success" style="width:50%; margin:auto; margin-bottom:2rem;">
+            <strong>Félicitation {{ message }}</strong>
+        </div>
+    {% endfor %}
+
+<div id="container_annonces" style="display: flex; gap:5rem; width:80%; margin:auto; flex-wrap: wrap;     justify-content: center;">
+    {% for annonce in annonces %}
+        <!-- card-->
+            <div class="col-3">
+                <a class="dropdown-item" href="{{ path('app_detail_product', {id_annonce:annonce.id}) }}">
+                    <div class="card h-100">
+                        <!-- Annonce image-->
+                        <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
+                        <!-- Annonce details-->
+                        <div class="card-body p-4">
+                            <div class="text-center">
+                                <!-- Annonce name-->
+                                <h5 class="fw-bolder" style="text-wrap: wrap;">{{annonce.title}}</h5>
+                                <!-- Annonce price-->
+                                {{annonce.prix}}
+                            </div>
+                        </div>
+                        <!-- Annonce actions-->
+                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                            <div class="text-center"><p style="text-wrap: wrap;">{{annonce.content}}</p></div>
+                        </div>
+                            <div class="text-center"><p>{{annonce.categories.libelle}}</p></div>
+                    </div>
+                </a>
+            </div>
+    {% endfor %}
+</div>
+{% endblock %}

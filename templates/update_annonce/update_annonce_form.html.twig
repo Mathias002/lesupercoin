@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %} {% block title %}Update{% endblock %} {% block
+header %}
+<header class="bg-dark py-5 mb-5">
+  <div class="container px-4 px-lg-5 my-5">
+    <div class="text-center text-white">
+      <h1 class="display-4 fw-bolder">{{ SelectedAnnonce.title }}</h1>
+    </div>
+  </div>
+</header>
+{% endblock %} {%block body %}
+<div id="container_form" style="width: 40%; margin: auto">
+  <h1>Update</h1>
+
+  {{ form_start(UpdateAnnonceForm) }}
+
+  {{ form_row(UpdateAnnonceForm.title) }}
+
+  {{ form_row(UpdateAnnonceForm.prix) }}
+
+  {{ form_row(UpdateAnnonceForm.content) }}
+
+  {{ form_row(UpdateAnnonceForm.categories) }}
+
+  <button class="btn btn-dark" type="submit">Update</button>
+
+  {{ form_end(UpdateAnnonceForm) }}
+</div>
+{% endblock %}
